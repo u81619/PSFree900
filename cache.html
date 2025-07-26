@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html manifest="4GAMER.manifest">
+<head>
+    <meta charset="UTF-8">
+    <title>4GAMER</title>
+    <script>
+        history.replaceState(null, null, 'index.html');
+    </script>
+    <style>
+        body {
+            background-image: url('Bg.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            margin: 0px;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #myProgress {
+            border: 5px solid #FFFFFF;
+            border-radius: 5px;
+            background-color: #ddd;
+            height: 45px;
+            position: absolute;
+            top: -130;
+            bottom: 0;
+            left: 150;
+            right: 150;
+            margin: auto;
+        }
+
+        #myBar {
+            width: 0%;
+            height: 40px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 5s linear infinite;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-size: 30px;
+        }
+
+        @keyframes rainbow {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body onload="frame1()">
+
+    <script>
+        if (window.applicationCache.status === 2) {
+            localStorage.is755BCached = true;
+        }
+
+        window.applicationCache.ondownloading = function () {
+            document.getElementById("progress").innerHTML = "جاري بدء تخزين الصفحة...";
+            localStorage.is755BCached = false;
+        };
+
+        window.applicationCache.onprogress = function (a) {
+            var percent = Math.round(100 * (a.loaded / a.total));
+            document.getElementById("myBar").style.width = percent + "%";
+            document.getElementById("myBar").innerHTML = percent + "%";
+        };
+
+        window.applicationCache.oncached = function () {
+            document.getElementById("progress").innerHTML = "تم تخزين الصفحة بنجاح!";
+            localStorage.is755BCached = true;
+            setTimeout(function () {
+                window.location.reload("myBar");
+            }, 1500);
+        };
+
+        window.applicationCache.onupdateready = function () {
+            document.getElementById("progress").innerHTML = "تم تحديث التخزين بنجاح!";
+            localStorage.is755BCached = true;
+            setTimeout(function () {
+                window.location.reload("myBar");
+            }, 1500);
+        };
+
+        window.applicationCache.onnoupdate = function () {
+            window.location.replace("index.html");
+        };
+
+        window.applicationCache.onerror = function () {
+            window.location.replace("index.html");
+        };
+    </script>
+
+    <script>
+        var width = 0;
+        function frame1() {
+            var elem = document.getElementById("myBar");
+            var i = 0;
+            var id = setInterval(fra, 10);
+            function fra() {
+                if (i < 10 && width < 100) {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width + "%";
+                }
+                i++;
+            }
+        }
+    </script>
+
+    <h1 id="progress" class="titlehead">جارٍ التحميل... يرجى الانتظار</h1>
+    <hr><br>
+    <h1 id="myProgress">
+        <div id="myBar">0%</div>
+    </h1>
+
+    <div style="background-color:#032140;color:white;position:fixed;left:0;bottom:0;width:100%;text-align:center;padding:10px;">
+        <span style='color:#87FF33'></span>
+        <a href="https://t.me/C9_9M" style='font-size:20px;color:yellow;'>@C9_9M</a> -تم تعريب الصفحه من قبل <br>
+        <span style='color:#87FF33'>شكر خاص:</span> شكراً جزيلاً لجميع المساهمين في مشهد PS4 ∆❍X❑
+    </div>
+</body>
+</html>

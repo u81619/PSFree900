@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url('pg.jpg');
+            background-color: #111112;
+            background-attachment: fixed;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            font-family: system-ui;
+            text-align: center;
+        }
+        button:-moz-focus-inner, button:focus {
+            outline: 0;
+            border: none;
+        }
+        button {
+            font-family: arial;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 2px solid #404040;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            background: none;
+            color: #d4d7d8;
+            box-shadow: 0 5px 0 #878787;
+        }
+        button:hover {
+            font-size: 20px;
+            background: #000064;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 0 #ccc;
+            color: #fff;
+        }
+        button:active {
+            background: #ee596f;
+            position: relative;
+            color: #000;
+            top: 5px;
+            box-shadow: none;
+        }
+        #console {
+            font-family: 'logging';
+        }
+    </style>
+    <title>جيلبريك تلقائي PS4 4GAMER</title>
+    <script>
+        function showMessage(msg) {
+            document.getElementById("message").innerHTML = msg;
+        }
+    </script>
+    <script>
+        if (window.applicationCache.status == '0') {
+            window.location.replace("cache.html");
+        }
+    </script>
+    <script src="loader.js"></script>
+    <script type="module" src="alert.js"></script>
+</head>
+<body>
+    <div id='console'></div>
+    <h1><center><font style='color:#fff;font-size:46px;font-weight:bold;text-shadow:3px 2px #3d3939;'><i>جيلبريك PS4 التلقائي</i></font></center></h1>
+    
+    <div>
+        <center><font style='color:#fff;font-size:26px;font-weight:bold;text-shadow:3px 2px #3d3939;'><i>GoldHen الإصدار 9.00</i></font></center>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <div id="message" style='color:#fff;font-size:35px;font-weight:bold;text-shadow:3px 2px #3d3939;'>
+        جاري التهكير... <font color="#ee596f">الرجاء الانتظار!</font>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div style="background-color:#032140;color:white;position:fixed;left:0;bottom:-0px;width:100%;text-align:center;">
+        <font style='color:#87FF33'></font>
+        <a href="https://t.me/C9_9M" style='font-size:20px;color:yellow;'>@C9_9M</a>
+        - تم تعريب من قبل ! &nbsp;
+        <font style="font-size: 20px">
+            النجاح = <span style="color:green" id="passCounter"></span>
+            &nbsp;&nbsp;:&nbsp;&nbsp;
+            الفشل = <span style="color:red" id="failCounter"></span>
+        </font>
+        <br>
+        <font style='color:#87FF33'>شكر خاص: </font>لكل من ساهم في مشهد PS4 ∆❍X❑
+    </div>
+
+    <script>
+        if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount = 0;
+        if (localStorage.passCounter == null || localStorage.passCounter == undefined) {
+            passCounter.innerHTML = localStorage.passcount;
+        }
+        if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount = 0;
+        if (localStorage.failCounter == null || localStorage.failCounter == undefined) {
+            failCounter.innerHTML = localStorage.failcount;
+        }
+    </script>
+</body>
+</html>
