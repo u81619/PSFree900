@@ -2,45 +2,59 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>جيلبريك تلقائي PS4 4GAMER</title>
     <style>
         body {
-            background-color: #0b0f2b; /* أزرق داكن */
-            background-image: url('P.jpeg');
-            background-blend-mode: overlay;
-            background-size: cover;
+            background-image: url('Pg.jpeg');
+            background-color: #111112;
             background-attachment: fixed;
+            background-size: 100%;
             background-repeat: no-repeat;
             font-family: system-ui;
             text-align: center;
-            margin: 0;
-            padding: 0;
         }
 
-        .container {
-            padding: 40px;
-            margin: auto;
-            border: 5px solid transparent;
-            border-radius: 15px;
-            background-color: rgba(0, 0, 64, 0.3);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-            animation: rgbBorder 6s linear infinite;
-            width: 80%;
-            max-width: 900px;
+        button:-moz-focus-inner, button:focus {
+            outline: 0;
+            border: none;
         }
 
-        @keyframes rgbBorder {
-            0% { border-color: red; }
-            25% { border-color: lime; }
-            50% { border-color: blue; }
-            75% { border-color: magenta; }
-            100% { border-color: red; }
+        button {
+            font-family: arial;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 2px solid #404040;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            background: none;
+            color: #d4d7d8;
+            box-shadow: 0 5px 0 #878787;
         }
 
-        h1, h2 {
-            margin-top: 0;
+        button:hover {
+            font-size: 20px;
+            background: #000064;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 0 #ccc;
+            color: #fff;
         }
 
+        button:active {
+            background: #ee596f;
+            position: relative;
+            color: #000;
+            top: 5px;
+            box-shadow: none;
+        }
+
+        #console {
+            font-family: 'logging';
+        }
+
+        /* تأثير RGB Glow */
         .rgb-glow {
             font-weight: bold;
             background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
@@ -48,7 +62,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: rgbAnimation 5s linear infinite;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         @keyframes rgbAnimation {
@@ -56,88 +70,75 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        button {
-            font-family: arial;
-            font-size: 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 12px 25px;
-            margin: 15px;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            background: transparent;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background: #001a4d;
-            color: #00ffff;
-            border-color: #00ffff;
-            box-shadow: 0 0 20px #00ffff;
-        }
-
-        #message {
-            font-size: 30px;
-            padding: 20px;
-            color: #ff6a6a;
-        }
-
-        footer {
-            background-color: #001533;
-            color: white;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 18px;
-            box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.3);
-        }
-
-        footer a {
-            color: yellow;
-            font-weight: bold;
-            text-decoration: none;
-        }
     </style>
-</head>
-<body>
 
-    <div class="container">
-        <h1 class="rgb-glow" style="font-size: 46px;">جيلبريك PS4 التلقائي</h1>
-        <h2 class="rgb-glow" style="font-size: 26px;">GoldHen الإصدار 9.00</h2>
-
-        <div id="message" class="rgb-glow">
-            جاري التهكير... <span style="color:#ee596f">الرجاء الانتظار!</span>
-        </div>
-
-        <!-- مثال على زر يمكن استخدامه -->
-        <button onclick="alert('تم الضغط!')">ابدأ الآن</button>
-    </div>
-
-    <footer>
-        <a href="https://t.me/C9_9M">@C9_9M</a> - تم التعريب بواسطة ! &nbsp;
-        <span>النجاح = <span style="color:green" id="passCounter">0</span> &nbsp;&nbsp;: الفشل = <span style="color:red" id="failCounter">0</span></span>
-        <br>
-        <span style="color:#87FF33;">شكر خاص: </span>لكل من ساهم في مشهد PS4 ∆❍X❑
-    </footer>
+    <title>جيلبريك تلقائي PS4 4GAMER</title>
 
     <script>
-        if (localStorage.passcount == null) localStorage.passcount = 0;
-        if (localStorage.failcount == null) localStorage.failcount = 0;
+        function showMessage(msg) {
+            document.getElementById("message").innerHTML = msg;
+        }
+    </script>
 
-        document.getElementById('passCounter').innerHTML = localStorage.passcount;
-        document.getElementById('failCounter').innerHTML = localStorage.failcount;
+    <script>
+        if (window.applicationCache.status == '0') {
+            window.location.replace("cache.html");
+        }
+    </script>
 
-        setTimeout(() => {
+    <script src="loader.js"></script>
+    <script type="module" src="alert.js"></script>
+</head>
+
+<body>
+    <div id='console'></div>
+
+    <h1>
+        <center>
+            <span class="rgb-glow" style="font-size: 46px;"><i>جيلبريك PS4 التلقائي</i></span>
+        </center>
+    </h1>
+
+    <div>
+        <center>
+            <span class="rgb-glow" style="font-size: 26px;"><i>GoldHen الإصدار 9.00</i></span>
+        </center>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <div id="message" class="rgb-glow" style="font-size: 35px;">
+        جاري التهكير... <span style="color:#ee596f">الرجاء الانتظار!</span>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div style="background-color:#032140;color:white;position:fixed;left:0;bottom:0;width:100%;text-align:center;">
+        <font style='color:#87FF33'></font>
+        <a href="https://t.me/C9_9M" style='font-size:20px;color:yellow;'>@C9_9M</a>
+        - تم تعريب من قبل ! &nbsp;
+        <font style="font-size: 20px">
+            النجاح = <span style="color:green" id="passCounter"></span>
+            &nbsp;&nbsp;:&nbsp;&nbsp;
+            الفشل = <span style="color:red" id="failCounter"></span>
+        </font>
+        <br>
+        <font style='color:#87FF33'>شكر خاص: </font>لكل من ساهم في مشهد PS4 ∆❍X❑
+    </div>
+
+    <script>
+        if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount = 0;
+        if (localStorage.passCounter == null || localStorage.passCounter == undefined) {
+            passCounter.innerHTML = localStorage.passcount;
+        }
+        if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount = 0;
+        if (localStorage.failCounter == null || localStorage.failCounter == undefined) {
+            failCounter.innerHTML = localStorage.failcount;
+        }
+
+        setTimeout(function () {
             alert("⭐ تم تفعيل جولد هين بواسطة 4GAMER ⭐");
         }, 2000);
     </script>
-
 </body>
 </html>
