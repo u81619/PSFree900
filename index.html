@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>4GAMER PSFREE</title>
+  <style>
+    /* الأساسيات */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* خلفية داكنة مع إضاءة RGB */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0a0a0a;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* طبقة إضاءة متحركة */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #00ff00, #ffff00, #ff0000);
+      background-size: 1000% 1000%;
+      animation: bgAnimation 20s ease infinite;
+      opacity: 0.15;
+      z-index: -1;
+    }
+    @keyframes bgAnimation {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    @font-face {
+      font-family: 'logging';
+      src: url('fonts/LiberationMono-Regular.ttf');
+    }
+
+    /* البطاقة */
+    .card {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    /* صندوق الأوامر أسفل الصفحة */
+    #console {
+      font-family: 'logging', monospace;
+      font-size: 18px;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      white-space: pre-wrap;
+      height: 200px;
+      overflow-y: auto;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-top: 2px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(5px);
+      margin: 0; /* بدون أي فراغ */
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (window.applicationCache.status === 0) {
+      window.location.replace("cache.html");
+    }
+  </script>
+
+  <div class="card">
+    <h1>4GAMER PSFREE</h1>
+  </div>
+
+  <pre id="console"></pre>
+
+  <script src="payload.js"></script>
+  <script type="module" src="./alert.mjs"></script>
+</body>
+</html>
